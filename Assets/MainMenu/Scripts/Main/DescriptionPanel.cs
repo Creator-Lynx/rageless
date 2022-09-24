@@ -20,7 +20,8 @@ public class DescriptionPanel : MonoBehaviour
     {
         if (_eSys.currentSelectedGameObject == null && _isOpened)
         {
-            StartCoroutine(ClosePanelProcess());
+            //StartCoroutine(ClosePanelProcess());
+            ClosePanel();
         }
     }
 
