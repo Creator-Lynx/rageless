@@ -19,16 +19,6 @@ public class ShootingState : IdleState
         _controller.transform.rotation = Quaternion.LookRotation(dir);
     }
 
-    public override void Attack() 
-    { 
-        base.Attack();
-    }
-
-    public override void Block() 
-    { 
-        base.Block();
-    }
-
     public override void Shooting(bool isShooting)
     {
         _controller.animator.SetBool("IsShooting", isShooting);

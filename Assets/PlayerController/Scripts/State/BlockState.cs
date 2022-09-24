@@ -23,4 +23,8 @@ public class BlockState : PlayerState
     public override void Attack() { }
 
     public override void Block() { }
+
+    public override void Dash() { }
+
+    public override bool CanBeDamaged => false;
 }

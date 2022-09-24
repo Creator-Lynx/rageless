@@ -24,5 +24,7 @@ public class AttackState : PlayerState
 
     public override void Attack() { }
 
-    public override void Block() { }    
+    public override void Block() { }
+
+    public override void Dash() { }
 }

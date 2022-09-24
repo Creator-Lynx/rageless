@@ -20,4 +20,24 @@ public abstract class PlayerState
     {
         _controller.animator.SetBool("IsShooting", false);
     }
+    public abstract void Dash();
+
+    public virtual bool CanBeDamaged => true;
+    public void Damage(int dmg)
+    {
+        if (CanBeDamaged)
+        {
+            _controller.health -= dmg;
+
+            if (_controller.health > 0)
+            {
+                _controller.SetState(99);
+                _controller.animator.SetTrigger("Damaged");
+            }
+            else
+            {
+                //TODO: смерть
+            }
+        }
+    }
 }

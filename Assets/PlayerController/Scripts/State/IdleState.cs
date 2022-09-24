@@ -49,4 +49,10 @@ public class IdleState : PlayerState
             _controller.SetState(3);
         }
     }
+
+    public override void Dash()
+    {
+        _controller.animator.SetTrigger("Dash");
+        _controller.SetState(4);
+    }
 }

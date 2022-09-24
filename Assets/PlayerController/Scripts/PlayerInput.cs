@@ -41,6 +41,11 @@ public class PlayerInput : MonoBehaviour
         };
     }
 
+    public float GetRadius()
+    {
+        return _radius;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
