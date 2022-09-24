@@ -18,6 +18,8 @@ public class BlockState : PlayerState
 
     public override void Move() { }
 
+    public override void Look() { }
+
     public override void Attack() { }
 
     public override void Block() { }

@@ -13,6 +13,11 @@ public abstract class PlayerState
     public virtual void Activate() { }
 
     public abstract void Move();
+    public abstract void Look();
     public abstract void Attack();
     public abstract void Block();
+    public virtual void Shooting(bool isShooting)
+    {
+        _controller.animator.SetBool("IsShooting", false);
+    }
 }

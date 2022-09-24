@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public PlayerInput input;
+    public GameObject pistol;
 
     private PlayerState _curState;
 
     private PlayerState _idleState;
     private PlayerState _attackState;
     private PlayerState _blockState;
+    private PlayerState _shootingState;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _idleState = new IdleState(this);
         _attackState = new AttackState(this);
         _blockState = new BlockState(this);
+        _shootingState = new ShootingState(this);
         SetState(0);
     }
 
@@ -42,6 +45,10 @@ public class PlayerController : MonoBehaviour
             case 2:
                 _curState = _blockState;
                 break;
+
+            case 3:
+                _curState = _shootingState;
+                break;
         }
 
         _curState.Activate();
@@ -54,7 +61,9 @@ public class PlayerController : MonoBehaviour
             _curState.Attack();
         }
 
-        if(Input.GetKeyDown(KeyCode.F))
+        _curState.Shooting(Input.GetMouseButton(1));
+
+        if (Input.GetKeyDown(KeyCode.F))
         {
             _curState.Block();
         }
@@ -63,5 +72,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _curState.Move();
+        _curState.Look();
     }
 }

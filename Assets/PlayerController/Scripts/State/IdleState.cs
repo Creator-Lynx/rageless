@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdleState : PlayerState
 {
-    private Quaternion _look = Quaternion.Euler(0, 0, 0);
+    protected Vector3 moveDir;
 
     public IdleState(PlayerController controller)
         : base(controller) { }
@@ -14,16 +14,19 @@ public class IdleState : PlayerState
         var hor = Input.GetAxisRaw("Horizontal");
         var vert = Input.GetAxisRaw("Vertical");
 
-        var moveDir = new Vector3(hor, 0, vert).normalized;
+        moveDir = new Vector3(hor, 0, vert).normalized;
         _controller.animator.SetFloat("Velocity", moveDir.magnitude);
 
+        _controller.rb.MovePosition(_controller.transform.position + moveDir * _controller.MoveSpeed * Time.deltaTime);
+    }
+
+    public override void Look()
+    {
         if (moveDir.magnitude > 0)
         {
-            _look = Quaternion.LookRotation(moveDir);
+            var _look = Quaternion.LookRotation(moveDir);
             _controller.transform.rotation = Quaternion.Lerp(_controller.transform.rotation, _look, 0.6f);
-        }       
-
-        _controller.rb.MovePosition(_controller.transform.position + moveDir * _controller.MoveSpeed * Time.deltaTime);
+        }
     }
 
     public override void Attack()
@@ -36,5 +39,14 @@ public class IdleState : PlayerState
     {
         _controller.SetState(2);
         _controller.animator.SetTrigger("Block");
+    }
+
+    public override void Shooting(bool isShooting)
+    {
+        _controller.animator.SetBool("IsShooting", isShooting);
+        if(isShooting)
+        {
+            _controller.SetState(3);
+        }
     }
 }
