@@ -60,7 +60,7 @@ public class DescriptionPanel : MonoBehaviour
     }
 
     public void ShowContent()
-    {
+    {        
         content[_curContent].SetActive(true);
     }
 
