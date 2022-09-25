@@ -36,7 +36,7 @@ public class BossController : MonoBehaviour, IDamagable
                     yield return new WaitForEndOfFrame();
                 }
 
-                yield return new WaitForSeconds(0.3f);
+                //yield return new WaitForSeconds(0.01f);
                 stateMachine.InvokeStateAttack();
 
                 yield return new WaitForSeconds(1.1f);

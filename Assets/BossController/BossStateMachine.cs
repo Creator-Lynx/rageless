@@ -17,11 +17,11 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates
     private BossState moveToPlayerState;    
     private BossState attackState;
 
-    private void Start()
+    private void Awake()
     {
         idleState = new IdleState_Boss(this);
         moveToPlayerState = new MoveToPlayerState_Boss(this);        
-        attackState = new AttackState_Boss(this);
+        attackState = new AttackState_Boss(this);        
     }
 
     public void SetState(int state)
