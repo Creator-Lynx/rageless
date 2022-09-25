@@ -34,14 +34,24 @@ public class MoveToPlayerState_Boss : BossState
 
     public override void Move()
     {
-        _controller.animator.SetBool("Moving", true);
+        //_controller.animator.SetBool("Moving", true);
 
-        agent.SetDestination(_controller.Player.transform.position);
+        //agent.SetDestination(_controller.Player.transform.position);
+        //var dist = Vector3.Distance(_controller.transform.position, _controller.Player.transform.position);
+
+        //if (dist <= agent.stoppingDistance)
+        //{     
+        //    //agent.isStopped = true;
+        //    _controller.SetState(0);
+        //    _controller.playerReached = true;
+        //    return;
+        //}
+
+        _controller.transform.position = Vector3.Lerp(_controller.transform.position, _controller.Player.transform.position, .78f);
+
         var dist = Vector3.Distance(_controller.transform.position, _controller.Player.transform.position);
-
-        if (dist <= agent.stoppingDistance)
-        {     
-            //agent.isStopped = true;
+        if(dist <= 2f)
+        {
             _controller.SetState(0);
             _controller.playerReached = true;
             return;

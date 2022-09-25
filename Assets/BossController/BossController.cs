@@ -22,7 +22,7 @@ public class BossController : MonoBehaviour, IDamagable
         stateMachine = GetComponent<BossStateMachine>();
         stateMachine.SetState(0);
 
-        var state = 1;
+        var state = 0;
 
         while (true)
         {
@@ -36,13 +36,13 @@ public class BossController : MonoBehaviour, IDamagable
                     yield return new WaitForEndOfFrame();
                 }
 
-                //yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.05f);
                 stateMachine.InvokeStateAttack();
 
-                yield return new WaitForSeconds(1.1f);
+                yield return new WaitForSeconds(.8f);
                 stateMachine.InvokeStateAttack();
 
-                yield return new WaitForSeconds(1.1f);
+                yield return new WaitForSeconds(.8f);
                 stateMachine.InvokeStateAttack();
 
                 yield return new WaitForSeconds(1f);
