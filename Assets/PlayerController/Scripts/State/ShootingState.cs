@@ -9,6 +9,7 @@ public class ShootingState : IdleState
 
     public override void Move()
     {
+        base.Move();
         _controller.animator.SetFloat("Velocity", 0);
     }
 

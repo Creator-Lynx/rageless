@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 443975394876602646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.093540005, y: 0.093540005, z: 0.093540005}
   m_Children:
   - {fileID: 5310646396220549071}
   m_Father: {fileID: 0}
@@ -203,7 +203,7 @@ TrailRenderer:
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.3
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -263,6 +263,6 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.03
   m_Autodestruct: 0
   m_Emitting: 1

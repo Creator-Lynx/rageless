@@ -14,7 +14,7 @@ public class DashState : PlayerState
         _dashed = false;
     }
 
-    public override void Move() 
+    public override void Move()
     {
         if (!_dashed)
         {
@@ -24,7 +24,9 @@ public class DashState : PlayerState
 
             _controller.rb.MovePosition(_controller.transform.position + dir * _controller.input.GetRadius());
             _dashed = true;
+            _controller.animator.SetFloat("Velocity", 0);
         }
+
     }
 
     public override void Look() { }

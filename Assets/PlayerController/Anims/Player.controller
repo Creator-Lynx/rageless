@@ -762,7 +762,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit2
-  m_Speed: 1
+  m_Speed: 1.9
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1566952563581209433}
@@ -1288,6 +1288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013eed3ba26603e4d963dff7b10ea119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shoot_source: {fileID: 0}
+  shotClip: {fileID: 0}
 --- !u!1107 &8427376274766035425
 AnimatorStateMachine:
   serializedVersion: 6
