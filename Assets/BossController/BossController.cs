@@ -22,7 +22,7 @@ public class BossController : MonoBehaviour, IDamagable
         stateMachine = GetComponent<BossStateMachine>();
         stateMachine.SetState(0);
 
-        var state = 0;
+        var state = 1;
 
         while (true)
         {

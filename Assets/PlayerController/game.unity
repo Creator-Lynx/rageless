@@ -3509,7 +3509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab309ed954a38c4088003aea50483d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotInterval: 0.2
+  ShotInterval: 0.02
   BulletPref: {fileID: 443975394876602646, guid: c4138a7b24adc504e83bf12c0235bd2d, type: 3}
   Barrel: {fileID: 1867629026}
 --- !u!1 &1490254509
