@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossStateMachine : MonoBehaviour, IObjectWithStates
+public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
 {
     public GameObject Player;
     [HideInInspector] public bool playerReached = false;
@@ -14,14 +14,21 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates
     private BossState curState = null;
 
     private BossState idleState;
-    private BossState moveToPlayerState;    
+    private BossState moveToPlayerState;
     private BossState attackState;
+
+    private BossState _deadState;
+
+    public bool isDead = false;
+
+    public int health = 100;
 
     private void Awake()
     {
         idleState = new IdleState_Boss(this);
-        moveToPlayerState = new MoveToPlayerState_Boss(this);        
-        attackState = new AttackState_Boss(this);        
+        moveToPlayerState = new MoveToPlayerState_Boss(this);
+        attackState = new AttackState_Boss(this);
+        _deadState = new DeadState_Boss(this);
     }
 
     public void SetState(int state)
@@ -39,13 +46,16 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates
             case 2:
                 curState = attackState;
                 break;
+            case -1:
+                curState = _deadState;
+                break;
         }
 
         curState.Activate();
     }
 
     private void Update()
-    {        
+    {
         curState.Move();
         curState.Look();
         curState.Shooting(isShooting);
@@ -64,5 +74,11 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates
     public GameObject GetPistol()
     {
         return pistol;
+    }
+
+
+    public void SetDamage(int dmg)
+    {
+        curState.Damage(dmg);
     }
 }

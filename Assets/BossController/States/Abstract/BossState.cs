@@ -22,19 +22,21 @@ public abstract class BossState
     public virtual bool CanBeDamaged => true;
     public void Damage(int dmg)
     {
-        //if (CanBeDamaged)
-        //{
-        //    _controller.health -= dmg;
+        if (CanBeDamaged)
+        {
+            _controller.health -= dmg;
 
-        //    if (_controller.health > 0)
-        //    {
-        //        _controller.SetState(99);
-        //        _controller.animator.SetTrigger("Damaged");
-        //    }
-        //    else
-        //    {
-        //        //TODO: смерть
-        //    }
-        //}
+            if (_controller.health > 0)
+            {
+                _controller.SetState(99);
+                _controller.animator.SetTrigger("Damaged");
+            }
+            else
+            {
+                _controller.animator.SetTrigger("Dead");
+                _controller.SetState(-1);
+                _controller.isDead = true;
+            }
+        }
     }
 }

@@ -2,19 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : MonoBehaviour, IDamagable
+public class BossController : MonoBehaviour
 {
-    public int hp = 100;
-    private BossStateMachine stateMachine;    
 
-    public void SetDamage(int dmg)
-    {
-        hp -= dmg;
-        if(hp <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    private BossStateMachine stateMachine;
+
+
 
     // Start is called before the first frame update
     private IEnumerator Start()
@@ -24,8 +17,9 @@ public class BossController : MonoBehaviour, IDamagable
 
         var state = 0;
 
-        while (true)
+        while (!stateMachine.isDead)
         {
+
             if (state == 0)
             {
                 yield return new WaitForSeconds(5f);
@@ -48,7 +42,7 @@ public class BossController : MonoBehaviour, IDamagable
                 yield return new WaitForSeconds(1f);
                 state = 1;
             }
-            else if(state == 1)
+            else if (state == 1)
             {
                 yield return new WaitForSeconds(5f);
                 stateMachine.isShooting = true;
@@ -58,5 +52,5 @@ public class BossController : MonoBehaviour, IDamagable
                 state = 0;
             }
         }
-    }    
+    }
 }

@@ -76,10 +76,7 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetDamage(1);
-        }
+
 
         if (Input.GetMouseButtonDown(0))
         {

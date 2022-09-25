@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotInterval: 0.2
-  BulletPref: {fileID: 3224495542345404664, guid: 279a75559b4860e498948800e309604d, type: 3}
+  BulletPref: {fileID: 443975394876602646, guid: c4138a7b24adc504e83bf12c0235bd2d, type: 3}
   Barrel: {fileID: 3586866002826168261}
 --- !u!1 &3586866002847571984
 GameObject:
@@ -1150,7 +1150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586866003285331546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00095, y: -0, z: 0.0063}
+  m_LocalPosition: {x: -0.00051, y: 0, z: 0.00693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3586866002908268681}
@@ -1176,7 +1176,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fad48364c203368448595cc8e1d47cda, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1588,7 +1588,7 @@ Animator:
   m_GameObject: {fileID: 3586866003499702487}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b36699b902f1157429de91371b12c9d7, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4c559ac69ad3474d9f243c68f18ebda, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1687,7 +1687,7 @@ GameObject:
   - component: {fileID: 6645628056145569291}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1750,7 +1750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b68119fbbc6f64e9553507a07b4ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
 --- !u!114 &6645628056145569291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,6 +1768,7 @@ MonoBehaviour:
   attackTrigger: {fileID: 3586866003021197337}
   isShooting: 0
   pistol: {fileID: 3586866002826168260}
+  health: 100
 --- !u!1 &3586866003764074185
 GameObject:
   m_ObjectHideFlags: 0

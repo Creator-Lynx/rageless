@@ -455,7 +455,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505431631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -683,41 +683,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3586866002826168258, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: BulletPref
-      value: 
-      objectReference: {fileID: 443975394876602646, guid: c4138a7b24adc504e83bf12c0235bd2d, type: 3}
-    - target: {fileID: 3586866003285331544, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_Emitting
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586866003285331544, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fad48364c203368448595cc8e1d47cda, type: 2}
-    - target: {fileID: 3586866003285331547, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00051
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586866003285331547, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586866003285331547, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.00693
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586866003499702482, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f4c559ac69ad3474d9f243c68f18ebda, type: 2}
     - target: {fileID: 3586866003673643207, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586866003673643207, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3586866003729314431, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
       propertyPath: m_RootOrder
