@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
     private PlayerState _dashState;
 
     private PlayerState _damagedState;
+    private PlayerState _deadState;
 
     private void Start()
     {
@@ -34,15 +35,16 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
         _shootingState = new ShootingState(this);
         _dashState = new DashState(this);
         _damagedState = new DamagedState(this);
+        _deadState = new DeadState(this);
         SetState(0);
     }
 
     public void SetState(int state)
     {
-        switch(state)
+        switch (state)
         {
             case 0:
-                _curState = _idleState;                
+                _curState = _idleState;
                 break;
 
             case 1:
@@ -64,6 +66,9 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
             case 99:
                 _curState = _damagedState;
                 break;
+            case -1:
+                _curState = _deadState;
+                break;
         }
 
         _curState.Activate();
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SetDamage(1);
         }
@@ -87,10 +92,10 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
         {
             _curState.Block();
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _curState.Dash();            
+            _curState.Dash();
         }
     }
 

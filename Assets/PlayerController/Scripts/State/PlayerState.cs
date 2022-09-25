@@ -39,7 +39,8 @@ public abstract class PlayerState
             }
             else
             {
-                //TODO: смерть
+                _controller.SetState(-1);
+                _controller.animator.SetTrigger("Death");
             }
         }
     }
