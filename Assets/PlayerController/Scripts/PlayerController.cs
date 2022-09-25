@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IDamagable
+public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
 {
     public float MoveSpeed = 1f;
     public int health = 100;
 
-    [HideInInspector] public Animator animator;
+    public Animator animator;
     [HideInInspector] public Rigidbody rb;
-    [HideInInspector] public PlayerInput input;
+    public PlayerInput input;
     public GameObject pistol;
+    public AttackTrigger attackTrigger;
 
     private PlayerState _curState;
 
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 
         _idleState = new IdleState(this);
@@ -93,6 +94,11 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
+    public void Attack()
+    {
+        attackTrigger.Attack();
+    }
+
     private void FixedUpdate()
     {
         _curState.Move();
@@ -102,5 +108,10 @@ public class PlayerController : MonoBehaviour, IDamagable
     public void SetDamage(int dmg)
     {
         _curState.Damage(dmg);
+    }
+
+    public GameObject GetPistol()
+    {
+        return pistol;
     }
 }

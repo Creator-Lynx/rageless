@@ -14,8 +14,6 @@ public class AttackState : PlayerState
         _target = _controller.input.GetDirection();
     }
 
-    public override void Move() { }
-
     public override void Look() 
     {
         var dir = new Vector3(_target.x, 0, _target.y).normalized;

@@ -14,9 +14,7 @@ public class BlockState : PlayerState
         look.y = 0;
 
         _controller.transform.rotation = Quaternion.LookRotation(look);
-    }
-
-    public override void Move() { }
+    }    
 
     public override void Look() { }
 

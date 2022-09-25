@@ -12,7 +12,10 @@ public abstract class PlayerState
     }
     public virtual void Activate() { }
 
-    public abstract void Move();
+    public virtual void Move()
+    {
+        _controller.animator.SetFloat("Velocity", 0);
+    }
     public abstract void Look();
     public abstract void Attack();
     public abstract void Block();

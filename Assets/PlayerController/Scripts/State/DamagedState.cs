@@ -5,9 +5,7 @@ using UnityEngine;
 public class DamagedState : PlayerState
 {
     public DamagedState(PlayerController controller)
-        : base(controller) { }
-
-    public override void Move() { }
+        : base(controller) { }    
 
     public override void Look() { }
 
