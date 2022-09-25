@@ -22,6 +22,7 @@ public class BossBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Destroy(gameObject);
+        collision.gameObject.GetComponent<IDamagable>()?.SetDamage(1);
+        Destroy(gameObject);
     }
 }
