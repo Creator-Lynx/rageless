@@ -7,9 +7,11 @@ public class Shooting : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<IObjectWithStates>().GetPistol().SetActive(true);
+        animator.GetComponentInParent<IObjectWithStates>().GetPistol().SetActive(true);
     }
 
+    public AudioSource shoot_source;
+    public AudioClip shotClip;
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -19,7 +21,7 @@ public class Shooting : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<IObjectWithStates>().GetPistol().SetActive(false);
+        animator.GetComponentInParent<IObjectWithStates>().GetPistol().SetActive(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IObjectWithStates
 {
     void SetState(int state);
+    void Attack();
     GameObject GetPistol();
 }
