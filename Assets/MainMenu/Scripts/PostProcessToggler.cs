@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PostProcessToggler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    PostProcessLayer pp;
     void Start()
     {
-        
+        pp = GetComponent<PostProcessLayer>();
+        pp.enabled = OptionsMenu.postProcessIsOn;
+        OptionsMenu.OnPostProcToggle += OnTogglePP;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        OptionsMenu.OnPostProcToggle -= OnTogglePP;
+    }
+
+    void OnTogglePP()
+    {
+        pp.enabled = !pp.enabled;
     }
 }

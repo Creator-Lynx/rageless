@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
+    private void Awake()
+    {
+        postProcessIsOn = PlayerPrefs.GetInt("PostProcessing", 1) == 1;
+        ppToggle.isOn = postProcessIsOn;
+    }
 
     public void OnClickLow()
     {
@@ -22,7 +28,7 @@ public class OptionsMenu : MonoBehaviour
 
     //===================================================================================================
     [SerializeField]
-    Slider musicSlider;
+    Slider musicSlider, sfxSlider;
     [SerializeField]
     AudioMixer musicMix;
     [SerializeField]
@@ -34,17 +40,21 @@ public class OptionsMenu : MonoBehaviour
         float vol = volumeSetting == 0 ? -80 : (volumeSetting * soundsVolumeMultiplier) - soundsVolumeMultiplier; // convert to DB
         musicMix.SetFloat("musicVolume", vol);
     }
+    public void OnChangedSFXSlider()
+    {
+        float volumeSetting = sfxSlider.value; // 0...1
+        float vol = volumeSetting == 0 ? -80 : (volumeSetting * soundsVolumeMultiplier) - soundsVolumeMultiplier; // convert to DB
+        musicMix.SetFloat("sfxVolume", vol);
+    }
     //===================================================================================================
     public static bool postProcessIsOn = true;
-    // public static UnityEvent OnPostProcToggle;
-    static OptionsMenu instance;
-    void Start()
-    {
-        instance = this;
-    }
+    public static Action OnPostProcToggle;
+    [SerializeField]
+    Toggle ppToggle;
     public void OnTogglePP()
     {
         postProcessIsOn = !postProcessIsOn;
-        //OnPostProcToggle.Invoke();
+        if (OnPostProcToggle != null) OnPostProcToggle.Invoke();
+        PlayerPrefs.SetInt("PostProcessing", postProcessIsOn ? 1 : 0);
     }
 }
