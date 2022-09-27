@@ -11,12 +11,12 @@ public class Gun : MonoBehaviour
 
     private float _timer = 0f;
 
-    void Update()
+    void FixedUpdate()
     {
-        _timer -= Time.deltaTime;
+        _timer -= Time.fixedDeltaTime;
         if (_timer <= 0f)
         {
-            Instantiate(BulletPref, Barrel.position, Quaternion.identity);
+            Instantiate(BulletPref, Barrel.position, Quaternion.identity).GetComponent<IBullet>().SetDirection();
             _timer = ShotInterval;
         }
     }

@@ -10,8 +10,6 @@ public class Shooting : StateMachineBehaviour
         animator.GetComponentInParent<IObjectWithStates>().GetPistol().SetActive(true);
     }
 
-    public AudioSource shoot_source;
-    public AudioClip shotClip;
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
