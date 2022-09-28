@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8447140016963130131}
   - component: {fileID: 8447140016963130140}
   - component: {fileID: 4423575414454934826}
+  - component: {fileID: 1347762256}
   m_Layer: 0
   m_Name: CameraTarget
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -55,7 +56,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8447140016963130130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5efa2a46a15f1954bae4fae19909255f, type: 3}
   m_Name: 
@@ -67,4 +68,26 @@ MonoBehaviour:
   findStep: 0.08
   offset: 0.2
   rotationLerpSpeed: 1.06
+  curve: {fileID: 0}
+--- !u!114 &1347762256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447140016963130130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc023b623e4f0cf48970fb331cb7d1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  followObject: {fileID: 8447140016963130131}
+  rotatedObject: {fileID: 0}
+  lerpSpeed: 5.25
+  findStep: 0.05
+  offset: 0.2
+  rotationLerpSpeed: 1.21
+  minZposClamp: -13
+  maxZposClamp: 3.69
   curve: {fileID: 0}

@@ -28,7 +28,7 @@ public class CameraCurveMoverUpdated : MonoBehaviour
         BezieSegment seg = curve.GetSegmentByT(t);
         Transform a = seg.points[0], b = seg.points[3];
         Vector3 targ = new Vector3(0f, 0f, Mathf.Clamp(target.position.z, minZposClamp, maxZposClamp));
-        float angle = Vector3.SignedAngle(Vector3.forward, targ - rotatedObject.position, Vector3.right);
+        float angle = Vector3.SignedAngle(Vector3.forward, targ - (transform.position + Vector3.down * offset), Vector3.right);
         //Quaternion targetRotation = Quaternion.LookRotation(targ - rotatedObject.position, Vector3.up);
         Quaternion targetRotation = Quaternion.Euler(angle, 0f, 0f);
         rotatedObject.rotation = Quaternion.Lerp(rotatedObject.rotation, targetRotation, Time.deltaTime * rotationLerpSpeed);
