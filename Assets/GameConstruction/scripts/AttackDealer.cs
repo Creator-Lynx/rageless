@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackDealer : MonoBehaviour
@@ -12,7 +10,7 @@ public class AttackDealer : MonoBehaviour
         controller = GetComponentInParent<IObjectWithStates>();
     }
 
-    public void Attack()
+    public void Attack(int attackNumber)
     {
         controller.Attack();
     }

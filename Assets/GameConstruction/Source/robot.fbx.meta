@@ -590,7 +590,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 2b9ecfdd2b319aa44a5cf69fe5b38035, type: 3}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -626,7 +626,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 2b9ecfdd2b319aa44a5cf69fe5b38035, type: 3}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 2
         messageOptions: 0
       transformMask: []
       maskType: 3

@@ -1769,7 +1769,11 @@ MonoBehaviour:
   isShooting: 0
   pistol: {fileID: 3586866002826168260}
   isDead: 0
-  health: 90
+  health: 180
+  maxHealth: 180
+  OnHpChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3586866003764074185
 GameObject:
   m_ObjectHideFlags: 0
