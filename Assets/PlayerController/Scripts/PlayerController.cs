@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -100,9 +101,22 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
         }
     }
 
-    public void Attack()
+    public void Attack(int attackNumber)
     {
-        attackTrigger.Attack();
+        int dmg;
+        switch (attackNumber)
+        {
+            default:
+                dmg = 10;
+                break;
+            case 1:
+                dmg = 15;
+                break;
+            case 2:
+                dmg = 30;
+                break;
+        }
+        attackTrigger.Attack(dmg);
     }
 
     private void FixedUpdate()

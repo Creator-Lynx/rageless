@@ -66,9 +66,22 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
         curState.Attack();
     }
 
-    public void Attack()
+    public void Attack(int attackNumber)
     {
-        attackTrigger.Attack();
+        int dmg;
+        switch (attackNumber)
+        {
+            default:
+                dmg = 10;
+                break;
+            case 1:
+                dmg = 15;
+                break;
+            case 2:
+                dmg = 30;
+                break;
+        }
+        attackTrigger.Attack(dmg);
     }
 
     public GameObject GetPistol()

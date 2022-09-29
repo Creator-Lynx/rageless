@@ -12,7 +12,7 @@ public class AttackDealer : MonoBehaviour
 
     public void Attack(int attackNumber)
     {
-        controller.Attack();
+        controller.Attack(attackNumber);
     }
 
 }

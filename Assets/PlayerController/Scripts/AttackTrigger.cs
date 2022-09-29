@@ -9,7 +9,7 @@ public class AttackTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var targ = other.GetComponent<IDamagable>();
-        if(targ != null)
+        if (targ != null)
         {
             target = targ;
         }
@@ -24,11 +24,11 @@ public class AttackTrigger : MonoBehaviour
         }
     }
 
-    public void Attack()
-    {        
-        if(target != null && !target.Equals(null))
+    public void Attack(int damage)
+    {
+        if (target != null && !target.Equals(null))
         {
-            target.SetDamage(10);
+            target.SetDamage(damage);
         }
     }
 }
