@@ -979,6 +979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 6
   health: 100
+  dashRange: 4.5
+  dashCoolDown: 1
   animator: {fileID: 6321982487152681873}
   rb: {fileID: 0}
   input: {fileID: 0}

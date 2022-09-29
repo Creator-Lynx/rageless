@@ -22,7 +22,7 @@ public class DashState : PlayerState
             var dir = new Vector3(_target.x, 0, _target.y).normalized;
             _controller.transform.rotation = Quaternion.LookRotation(dir);
 
-            _controller.rb.MovePosition(_controller.transform.position + dir * _controller.input.GetRadius());
+            _controller.rb.MovePosition(_controller.transform.position + dir * _controller.dashRange);
             _dashed = true;
             _controller.animator.SetFloat("Velocity", 0);
         }

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
 {
     public float MoveSpeed = 1f;
     public int health = 100;
+    public float dashRange = 4f, dashCoolDown = 2f;
 
     public Animator animator;
     [HideInInspector] public Rigidbody rb;
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
         _curState.Activate();
     }
 
+    float dashTimer = 3f;
     private void Update()
     {
 
@@ -89,9 +91,10 @@ public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
         {
             _curState.Block();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        dashTimer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && dashTimer > dashCoolDown)
         {
+            dashTimer = 0;
             _curState.Dash();
         }
     }
