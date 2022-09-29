@@ -61,9 +61,9 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
         curState.Shooting(isShooting);
     }
 
-    public void InvokeStateAttack()
+    public void InvokeStateAttack(int attackNumber = 0)
     {
-        curState.Attack();
+        curState.Attack(attackNumber);
     }
 
     public void Attack(int attackNumber)
@@ -93,5 +93,12 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     public void SetDamage(int dmg)
     {
         curState.Damage(dmg);
+        if (health < 10)
+        {
+            GetComponent<BossController>().fase = 1;
+            health = maxHealth;
+            OnHpChanged.Invoke(1);
+        }
+
     }
 }

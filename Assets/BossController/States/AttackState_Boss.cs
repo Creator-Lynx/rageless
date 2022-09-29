@@ -7,7 +7,7 @@ public class AttackState_Boss : BossState
     public AttackState_Boss(BossStateMachine controller)
         : base(controller) { }
 
-    public override void Attack() { }
+    public override void Attack(int attackNumber) { }
 
     public override void Block() { }
 
@@ -15,7 +15,7 @@ public class AttackState_Boss : BossState
 
     public override void Look() { }
 
-    public override void Move() 
+    public override void Move()
     {
         _controller.animator.SetBool("Moving", false);
     }

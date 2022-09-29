@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 
     private BossStateMachine stateMachine;
 
-
+    public int fase = 0;
 
     // Start is called before the first frame update
     private IEnumerator Start()
@@ -17,40 +17,48 @@ public class BossController : MonoBehaviour
 
         var state = 0;
 
+
         while (!stateMachine.isDead)
         {
-
-            if (state == 0)
+            if (fase == 0)
             {
-                yield return new WaitForSeconds(5f);
-                stateMachine.SetState(1);
-
-                while (!stateMachine.playerReached)
+                if (state == 0)
                 {
-                    yield return new WaitForEndOfFrame();
+                    yield return new WaitForSeconds(5f);
+                    stateMachine.SetState(1);
+
+                    while (!stateMachine.playerReached)
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
+
+                    yield return new WaitForSeconds(0.05f);
+                    stateMachine.InvokeStateAttack();
+
+                    yield return new WaitForSeconds(.7f);
+                    stateMachine.InvokeStateAttack();
+
+                    //yield return new WaitForSeconds(1f);
+                    //stateMachine.InvokeStateAttack();
+
+                    yield return new WaitForSeconds(2f);
+                    state = 1;
                 }
+                else if (state == 1)
+                {
+                    yield return new WaitForSeconds(5f);
+                    stateMachine.isShooting = true;
+                    yield return new WaitForSeconds(8f);
+                    stateMachine.isShooting = false;
 
-                yield return new WaitForSeconds(0.05f);
-                stateMachine.InvokeStateAttack();
-
-                yield return new WaitForSeconds(.8f);
-                stateMachine.InvokeStateAttack();
-
-                yield return new WaitForSeconds(.8f);
-                stateMachine.InvokeStateAttack();
-
-                yield return new WaitForSeconds(1f);
-                state = 1;
+                    state = 0;
+                }
             }
-            else if (state == 1)
+            else
             {
-                yield return new WaitForSeconds(5f);
-                stateMachine.isShooting = true;
-                yield return new WaitForSeconds(8f);
-                stateMachine.isShooting = false;
 
-                state = 0;
             }
+
         }
     }
 }

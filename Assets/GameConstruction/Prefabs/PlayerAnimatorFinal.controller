@@ -539,7 +539,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Damaged
-  m_Speed: 1.63
+  m_Speed: 1.69
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 9127518940332601068}
@@ -1001,7 +1001,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1810701271380706224}
-    m_Position: {x: 880, y: -60, z: 0}
+    m_Position: {x: 870, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1148616195361350216}
     m_Position: {x: -170, y: 300, z: 0}

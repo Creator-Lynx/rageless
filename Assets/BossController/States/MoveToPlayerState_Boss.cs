@@ -17,7 +17,11 @@ public class MoveToPlayerState_Boss : BossState
         agent = _controller.GetComponent<NavMeshAgent>();
     }
 
-    public override void Attack() { }
+    public override void Attack(int attackNumber)
+    {
+        _controller.SetState(2);
+        _controller.animator.SetTrigger("Attack" + attackNumber);
+    }
 
     public override void Block() { }
 
@@ -50,7 +54,7 @@ public class MoveToPlayerState_Boss : BossState
         _controller.transform.position = Vector3.Lerp(_controller.transform.position, _controller.Player.transform.position, .78f);
 
         var dist = Vector3.Distance(_controller.transform.position, _controller.Player.transform.position);
-        if(dist <= 2f)
+        if (dist <= 2f)
         {
             _controller.SetState(0);
             _controller.playerReached = true;

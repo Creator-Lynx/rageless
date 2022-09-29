@@ -7,7 +7,7 @@ public class DeadState_Boss : BossState
     public DeadState_Boss(BossStateMachine controller)
         : base(controller) { }
 
-    public override void Attack() { }
+    public override void Attack(int attackNumber) { }
 
     public override void Block() { }
 

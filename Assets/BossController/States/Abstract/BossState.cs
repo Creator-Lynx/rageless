@@ -14,7 +14,7 @@ public abstract class BossState
 
     public abstract void Move();
     public abstract void Look();
-    public abstract void Attack();
+    public abstract void Attack(int attackNumber);
     public abstract void Block();
     public abstract void Shooting(bool isShooting);
     public abstract void Dash();

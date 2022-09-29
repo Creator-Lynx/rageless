@@ -5,12 +5,12 @@ using UnityEngine;
 public class IdleState_Boss : BossState
 {
     public IdleState_Boss(BossStateMachine controller)
-        : base(controller) { } 
+        : base(controller) { }
 
-    public override void Attack() 
+    public override void Attack(int attackNumber)
     {
         _controller.SetState(2);
-        _controller.animator.SetTrigger("Attack");
+        _controller.animator.SetTrigger("Attack" + attackNumber);
     }
 
     public override void Block() { }
@@ -26,15 +26,15 @@ public class IdleState_Boss : BossState
         _controller.transform.rotation = Quaternion.LookRotation(look);
     }
 
-    public override void Move() 
+    public override void Move()
     {
         _controller.animator.SetBool("Moving", false);
     }
 
-    public override void Shooting(bool isShooting) 
+    public override void Shooting(bool isShooting)
     {
         _controller.animator.SetBool("IsShooting", isShooting);
-        if(isShooting)
+        if (isShooting)
         {
             _controller.SetState(3);
         }
