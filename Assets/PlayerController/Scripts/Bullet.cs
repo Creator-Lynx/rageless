@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour, IBullet
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Player")) return;
         collision.gameObject.GetComponent<IDamagable>()?.SetDamage(1);
         Destroy(gameObject);
     }
