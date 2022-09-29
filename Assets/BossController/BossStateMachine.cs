@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
 {
@@ -21,7 +20,8 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
 
     public bool isDead = false;
 
-    public int health = 100;
+    public int health = 90, maxHealth = 90;
+    public UnityEvent<float> OnHpChanged;
 
     private void Awake()
     {

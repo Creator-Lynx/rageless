@@ -31,7 +31,7 @@ public abstract class PlayerState
         if (CanBeDamaged)
         {
             _controller.health -= dmg;
-
+            _controller.OnHpChanged.Invoke((float)_controller.health / (float)(_controller.maxHealth));
             if (_controller.health > 0)
             {
                 _controller.SetState(99);

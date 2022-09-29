@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour, IDamagable, IObjectWithStates
 {
     public float MoveSpeed = 1f;
-    public int health = 100;
+    public int health = 90, maxHealth = 90;
     public float dashRange = 4f, dashCoolDown = 2f;
+
+    public UnityEvent<float> OnHpChanged;
 
     public Animator animator;
     [HideInInspector] public Rigidbody rb;

@@ -1,18 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Image selfImage;
+    [SerializeField]
+    float timeToChange = 0.4f;
+    private void Start()
     {
-        
+        selfImage = GetComponent<Image>();
+    }
+    float currentHP = 1;
+    IEnumerator BarAnimation()
+    {
+        float timer = 0;
+        while (timer < timeToChange)
+        {
+            selfImage.fillAmount = Mathf.Lerp(selfImage.fillAmount, currentHP, timer / timeToChange);
+            yield return new WaitForEndOfFrame();
+            timer += Time.deltaTime;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// hp ranged from 0 to 1.
+    /// </summary>
+    /// <param name="hp"></param>
+    public void OnHpChange(float hp)
     {
-        
+        currentHP = hp;
+        StartCoroutine(BarAnimation());
     }
+
 }

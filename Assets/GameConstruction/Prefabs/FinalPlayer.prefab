@@ -978,9 +978,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 6
-  health: 100
+  health: 90
+  maxHealth: 90
   dashRange: 4.5
   dashCoolDown: 1
+  OnHpChanged:
+    m_PersistentCalls:
+      m_Calls: []
   animator: {fileID: 6321982487152681873}
   rb: {fileID: 0}
   input: {fileID: 0}
