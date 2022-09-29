@@ -1,30 +1,44 @@
 using UnityEngine;
 
+//[ExecuteAlways]
 public class CheatReader : MonoBehaviour
 {
     [SerializeField]
     Cheat[] cheats;
 
-    void Start()
-    {
-        for (int i = 0; i < cheats.Length; i++)
-        {
-            cheats[i].code = String2KeyCodeArray(cheats[i].Name);
-        }
-    }
+    // void Start()
+    // {
+    //     for (int i = 0; i < cheats.Length; i++)
+    //     {
+    //         cheats[i].code = String2KeyCodeArray(cheats[i].Name);
+    //     }
+    // }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(cheats[0].code[cheats[0].progress]))
+        for (int i = 0; i < cheats.Length; i++)
         {
-            cheats[0].progress++;
-            if (cheats[0].progress >= cheats[0].code.Length)
+            //if (Input.GetKeyDown(cheats[0].code[cheats[0].progress]))
+            //{
+            //    cheats[0].progress++;
+            //    if (cheats[0].progress >= cheats[0].code.Length)
+            //    {
+            //        cheats[0].method.Execute();
+            //        cheats[0].progress = 0;
+            //    }
+            //}
+            if (Input.GetKeyDown(cheats[i].code[cheats[i].progress]))
             {
-                Debug.Log("ЧИТ СУКА");
-                cheats[0].progress = 0;
+                cheats[i].progress++;
+                if (cheats[i].progress >= cheats[i].code.Length)
+                {
+                    cheats[i].method.Execute();
+                    cheats[i].progress = 0;
+                }
             }
         }
+
     }
 
     /// <summary>
@@ -59,6 +73,5 @@ public class Cheat
     public KeyCode[] code;
     [InterfaceField(typeof(ICheatExecutable))]
     [SerializeField] private Object CheatInterface;
-    public ICheatExecutable InterfaceProperty => CheatInterface as ICheatExecutable;
-    public ICheatExecutable method;
+    public ICheatExecutable method => CheatInterface as ICheatExecutable;
 }
