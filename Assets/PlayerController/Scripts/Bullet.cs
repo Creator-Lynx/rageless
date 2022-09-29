@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour, IBullet
 {
     public float speed = 1f;
+    public int bulleDamage = 2;
     public Rigidbody rb;
 
     public void SetDirection()
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour, IBullet
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player")) return;
-        collision.gameObject.GetComponent<IDamagable>()?.SetDamage(1);
+        collision.gameObject.GetComponent<IDamagable>()?.SetDamage(bulleDamage);
         Destroy(gameObject);
     }
 }

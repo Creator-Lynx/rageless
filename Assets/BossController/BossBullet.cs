@@ -6,6 +6,8 @@ public class BossBullet : MonoBehaviour, IBullet
 {
     public float speed = 1f;
     public Rigidbody rb;
+    [SerializeField]
+    int bulletDamage = 4;
 
     public void SetDirection()
     {
@@ -23,7 +25,7 @@ public class BossBullet : MonoBehaviour, IBullet
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) return;
-        collision.gameObject.GetComponent<IDamagable>()?.SetDamage(1);
+        collision.gameObject.GetComponent<IDamagable>()?.SetDamage(bulletDamage);
         Destroy(gameObject);
     }
 }

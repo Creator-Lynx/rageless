@@ -75,7 +75,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
                 dmg = 10;
                 break;
             case 1:
-                dmg = 15;
+                dmg = 20;
                 break;
             case 2:
                 dmg = 30;
