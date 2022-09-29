@@ -8,12 +8,21 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _radius;
     //[SerializeField] private float _deadZoneRadius;
-    public float _speed = 1f;
-
+    [SerializeField]
+    [Range(0.2f, 0.9f)]
+    float _sensitivity = 1f;
+    [SerializeField]
+    float _maxSensitivity = 1f, _minSensitivity = 0.1f;
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        OnSensitiveChange();
+        OptionsMenu.OnSensitiveChange = OnSensitiveChange;
+    }
+    private void OnDestroy()
+    {
+        OptionsMenu.OnSensitiveChange -= OnSensitiveChange;
     }
 
     private void Update()
@@ -24,7 +33,7 @@ public class PlayerInput : MonoBehaviour
         var mouseY = Input.GetAxis("Mouse Y");
         var mouseOffset = new Vector3(mouseX, 0, mouseY);
 
-        _target.localPosition += mouseOffset * _speed;
+        _target.localPosition += mouseOffset * _sensitivity;
 
         if (_target.localPosition.magnitude > _radius)
         {
@@ -57,5 +66,10 @@ public class PlayerInput : MonoBehaviour
 
         //Gizmos.color = Color.white;
         //Gizmos.DrawSphere(_target.position, 0.15f);
+    }
+
+    void OnSensitiveChange()
+    {
+        _sensitivity = _minSensitivity + OptionsMenu.Sensitivity * (_maxSensitivity - _minSensitivity);
     }
 }

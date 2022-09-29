@@ -8,7 +8,8 @@ public class PostProcessToggler : MonoBehaviour
     {
         pp = GetComponent<PostProcessLayer>();
         pp.enabled = OptionsMenu.postProcessIsOn;
-        OptionsMenu.OnPostProcToggle += OnTogglePP;
+        Debug.Log(OptionsMenu.postProcessIsOn);
+        OptionsMenu.OnPostProcToggle = OnTogglePP;
     }
 
     void OnDestroy()
@@ -18,6 +19,6 @@ public class PostProcessToggler : MonoBehaviour
 
     void OnTogglePP()
     {
-        pp.enabled = !pp.enabled;
+        pp.enabled = OptionsMenu.postProcessIsOn;
     }
 }

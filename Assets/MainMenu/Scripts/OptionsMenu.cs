@@ -7,9 +7,14 @@ public class OptionsMenu : MonoBehaviour
 {
     private void Awake()
     {
+        OnClickQualityLevel(PlayerPrefs.GetInt("QualityLevel", 0));
+        //===============
         postProcessIsOn = PlayerPrefs.GetInt("PostProcessing", 1) == 1;
         ppToggle.isOn = postProcessIsOn;
-        OnClickQualityLevel(PlayerPrefs.GetInt("QualityLevel", 0));
+        //===============
+        Sensitivity = PlayerPrefs.GetFloat("Sensitivity", 0.5f);
+        sensitiveSlider.value = Sensitivity;
+        //===============
     }
     //=======================================================================================================
     [SerializeField]
@@ -32,9 +37,6 @@ public class OptionsMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(level);
         PlayerPrefs.SetInt("QualityLevel", level);
     }
-
-
-
     //===================================================================================================
     [SerializeField]
     Slider musicSlider, sfxSlider;
@@ -56,14 +58,26 @@ public class OptionsMenu : MonoBehaviour
         musicMix.SetFloat("sfxVolume", vol);
     }
     //===================================================================================================
-    public static bool postProcessIsOn = true;
+    public static bool postProcessIsOn { get; private set; }
     public static Action OnPostProcToggle;
     [SerializeField]
-    Toggle ppToggle;
+    private Toggle ppToggle;
     public void OnTogglePP()
     {
-        postProcessIsOn = !postProcessIsOn;
+        postProcessIsOn = ppToggle.isOn;
         if (OnPostProcToggle != null) OnPostProcToggle.Invoke();
         PlayerPrefs.SetInt("PostProcessing", postProcessIsOn ? 1 : 0);
     }
+    //===========================================================================================================
+    public static float Sensitivity { get; private set; }
+    public static Action OnSensitiveChange;
+    [SerializeField]
+    Slider sensitiveSlider;
+    public void OnChangedSensitiveSlider()
+    {
+        Sensitivity = sensitiveSlider.value;
+        PlayerPrefs.SetFloat("Sensitivity", Sensitivity);
+        if (OnSensitiveChange != null) OnSensitiveChange.Invoke();
+    }
+
 }

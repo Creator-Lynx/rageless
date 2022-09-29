@@ -1382,8 +1382,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2111548801}
   _target: {fileID: 606839358}
-  _radius: 2.08
-  _speed: 1
+  _radius: 2.5
+  _sensitivity: 0.5
+  _maxSensitivity: 0.9
+  _minSensitivity: 0.2
 --- !u!4 &1563667510
 Transform:
   m_ObjectHideFlags: 0
