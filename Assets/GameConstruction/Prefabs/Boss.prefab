@@ -448,8 +448,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586866002826168260}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000001, y: -0.000608, z: 0.000085}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.000001, y: -0.000651, z: 0.000085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3586866002894308446}
@@ -468,7 +468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotInterval: 0.2
+  isStandartBullet: 1
   BulletPref: {fileID: 443975394876602646, guid: c4138a7b24adc504e83bf12c0235bd2d, type: 3}
+  BulletPref2: {fileID: 443975394876602646, guid: be0ba6955054f92419fc56f4f52d3e74, type: 3}
   Barrel: {fileID: 3586866002826168261}
 --- !u!1 &3586866002847571984
 GameObject:
@@ -1750,6 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b68119fbbc6f64e9553507a07b4ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase: 1
 --- !u!114 &6645628056145569291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,10 +1770,13 @@ MonoBehaviour:
   animator: {fileID: 3586866003499702482}
   attackTrigger: {fileID: 3586866003021197337}
   isShooting: 0
+  ShootingAngle: 80
+  ShootingPeriod: 2
   pistol: {fileID: 3586866002826168260}
   isDead: 0
   health: 270
   maxHealth: 270
+  targetPoint: {x: 0, y: 0, z: 13}
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []

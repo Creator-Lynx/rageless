@@ -9,7 +9,6 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     public Animator animator;
     public AttackTrigger attackTrigger;
     public bool isShooting = false;
-    public bool isShooting2 = false;
     public float ShootingAngle = 80f;
     public float ShootingPeriod = 2f;
     public GameObject pistol;
@@ -22,6 +21,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     private BossState attackState;
 
     private BossState _deadState;
+    private BossState veerShotState;
 
     public bool isDead = false;
 
@@ -36,6 +36,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
         attackState = new AttackState_Boss(this);
         _deadState = new DeadState_Boss(this);
         moveToPointState = new MoveToPointState_Boss(this);
+        veerShotState = new VeerShotingState_Boss(this);
     }
 
     public void SetState(int state)
@@ -55,6 +56,9 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
                 break;
             case 3:
                 curState = moveToPointState;
+                break;
+            case 4:
+                curState = veerShotState;
                 break;
             case -1:
                 curState = _deadState;

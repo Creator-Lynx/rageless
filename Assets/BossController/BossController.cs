@@ -81,10 +81,11 @@ public class BossController : MonoBehaviour
                 {
                     stateMachine.SetState(3);
                     yield return new WaitForSeconds(4f);
-                    stateMachine.SetState(0);
+                    stateMachine.SetState(4);
                     stateMachine.isShooting = true;
                     yield return new WaitForSeconds(8f);
                     stateMachine.isShooting = false;
+                    stateMachine.SetState(0);
                     state = 2;
                 }
                 else
