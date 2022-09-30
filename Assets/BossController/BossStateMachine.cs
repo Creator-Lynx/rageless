@@ -118,7 +118,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     public void SetDamage(int dmg)
     {
         curState.Damage(dmg);
-        if (health < 10)
+        if (health < 10 && GetComponent<BossController>().fase == 0)
         {
             GetComponent<BossController>().fase = 1;
             health = maxHealth;

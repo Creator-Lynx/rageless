@@ -15,6 +15,12 @@ public class IdleState_Boss : BossState
         _controller.animator.SetBool("IsAttaking", true);
     }
 
+    public override void Activate()
+    {
+        base.Activate();
+        _controller.GetPistol().GetComponent<Gun>().isStandartBullet = true;
+        _controller.GetPistol().GetComponent<Gun>().ShotInterval = 0.2f;
+    }
     public override void Block() { }
 
     public override void Dash() { }

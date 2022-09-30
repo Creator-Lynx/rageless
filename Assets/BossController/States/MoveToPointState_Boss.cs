@@ -49,13 +49,13 @@ public class MoveToPointState_Boss : BossState
         //    _controller.playerReached = true;
         //    return;
         //}
-        //var dir = _controller.Player.transform.position - _controller.transform.position;
+        var dir = _controller.Player.transform.position - _controller.transform.position;
         timerToDest += Time.deltaTime;
         _controller.transform.position = Vector3.Lerp(
             _controller.transform.position,
              _controller.targetPoint, timerToDest / timeToDest);
-        Debug.Log(timerToDest);
-        if (timerToDest > timeToDest)
+
+        if (timerToDest >= timeToDest)
         {
             _controller.SetState(0);
             _controller.playerReached = true;

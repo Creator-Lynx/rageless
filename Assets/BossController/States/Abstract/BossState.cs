@@ -13,8 +13,7 @@ public abstract class BossState
     public virtual void Activate()
     {
         _controller.animator.SetBool("Moving", false);
-        _controller.GetPistol().GetComponent<Gun>().isStandartBullet = true;
-        _controller.GetPistol().GetComponent<Gun>().ShotInterval = 0.2f;
+
     }
 
     public abstract void Move();

@@ -24,7 +24,12 @@ public class BossBulletVeer : MonoBehaviour, IBullet
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) return;
-        collision.gameObject.GetComponent<IDamagable>()?.SetDamage(bulletDamage);
-        Destroy(gameObject);
+        IDamagable a = collision.gameObject.GetComponent<IDamagable>();
+        if (a != null)
+        {
+            collision.gameObject.GetComponent<IDamagable>()?.SetDamage(bulletDamage);
+            Destroy(gameObject);
+        }
+
     }
 }
