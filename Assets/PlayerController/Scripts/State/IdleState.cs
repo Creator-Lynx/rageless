@@ -27,6 +27,7 @@ public class IdleState : PlayerState
             var _look = Quaternion.LookRotation(moveDir);
             _controller.transform.rotation = Quaternion.Lerp(_controller.transform.rotation, _look, 0.6f);
         }
+
     }
 
     public override void Attack()
@@ -44,7 +45,7 @@ public class IdleState : PlayerState
     public override void Shooting(bool isShooting)
     {
         _controller.animator.SetBool("IsShooting", isShooting);
-        if(isShooting)
+        if (isShooting)
         {
             _controller.SetState(3);
         }

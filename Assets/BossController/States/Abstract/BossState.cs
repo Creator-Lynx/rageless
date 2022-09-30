@@ -10,7 +10,10 @@ public abstract class BossState
     {
         _controller = controller;
     }
-    public virtual void Activate() { }
+    public virtual void Activate()
+    {
+        _controller.animator.SetBool("Moving", false);
+    }
 
     public abstract void Move();
     public abstract void Look();

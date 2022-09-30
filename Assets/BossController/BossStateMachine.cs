@@ -9,12 +9,16 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     public Animator animator;
     public AttackTrigger attackTrigger;
     public bool isShooting = false;
+    public bool isShooting2 = false;
+    public float ShootingAngle = 80f;
+    public float ShootingPeriod = 2f;
     public GameObject pistol;
 
     private BossState curState = null;
 
     private BossState idleState;
     private BossState moveToPlayerState;
+    private BossState moveToPointState;
     private BossState attackState;
 
     private BossState _deadState;
@@ -22,6 +26,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     public bool isDead = false;
 
     public int health = 90, maxHealth = 90;
+    public Vector3 targetPoint = new Vector3(0, 0, 13);
     public UnityEvent<float> OnHpChanged;
 
     private void Awake()
@@ -30,6 +35,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
         moveToPlayerState = new MoveToPlayerState_Boss(this);
         attackState = new AttackState_Boss(this);
         _deadState = new DeadState_Boss(this);
+        moveToPointState = new MoveToPointState_Boss(this);
     }
 
     public void SetState(int state)
@@ -46,6 +52,9 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
 
             case 2:
                 curState = attackState;
+                break;
+            case 3:
+                curState = moveToPointState;
                 break;
             case -1:
                 curState = _deadState;

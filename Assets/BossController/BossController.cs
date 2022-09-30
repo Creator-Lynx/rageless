@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 
     private BossStateMachine stateMachine;
 
-    public int fase = 0;
+    public int fase = 1;
 
     // Start is called before the first frame update
     private IEnumerator Start()
@@ -33,15 +33,25 @@ public class BossController : MonoBehaviour
                     //}
 
                     yield return new WaitForSeconds(2f);
-                    stateMachine.InvokeStateAttack();
-
-                    yield return new WaitForSeconds(1.5f);
-                    stateMachine.InvokeStateAttack();
+                    stateMachine.InvokeStateAttack(0);
 
                     yield return new WaitForSeconds(1f);
-                    stateMachine.InvokeStateAttack();
+                    stateMachine.InvokeStateAttack(1);
 
+                    yield return new WaitForSeconds(1f);
+                    stateMachine.InvokeStateAttack(1);
+
+                    yield return new WaitForSeconds(1f);
+                    //=============================
                     yield return new WaitForSeconds(2f);
+                    stateMachine.InvokeStateAttack(1);
+
+                    yield return new WaitForSeconds(0.7f);
+                    stateMachine.InvokeStateAttack(0);
+
+                    yield return new WaitForSeconds(0.7f);
+                    stateMachine.InvokeStateAttack(1);
+
                     state = 1;
                 }
                 else if (state == 1)
@@ -56,7 +66,32 @@ public class BossController : MonoBehaviour
             }
             else
             {
-                yield return new WaitForSeconds(5f);
+                if (state == 0)
+                {
+                    yield return new WaitForSeconds(3f);
+                    stateMachine.InvokeStateAttack(0);
+                    yield return new WaitForSeconds(0.7f);
+                    stateMachine.InvokeStateAttack(1);
+                    yield return new WaitForSeconds(1f);
+                    stateMachine.InvokeStateAttack(2);
+                    yield return new WaitForSeconds(1f);
+                    state = 1;
+                }
+                else if (state == 1)
+                {
+                    stateMachine.SetState(3);
+                    yield return new WaitForSeconds(4f);
+                    stateMachine.SetState(0);
+                    stateMachine.isShooting = true;
+                    yield return new WaitForSeconds(8f);
+                    stateMachine.isShooting = false;
+                    state = 2;
+                }
+                else
+                {
+                    state = 0;
+                }
+
             }
 
         }

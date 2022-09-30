@@ -36,9 +36,9 @@ public class IdleState_Boss : BossState
     public override void Shooting(bool isShooting)
     {
         _controller.animator.SetBool("IsShooting", isShooting);
-        if (isShooting)
-        {
-            _controller.SetState(3);
-        }
+        //if (isShooting)
+        //{
+        //    _controller.SetState(3);
+        //}
     }
 }
