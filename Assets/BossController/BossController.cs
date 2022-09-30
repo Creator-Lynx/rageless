@@ -24,22 +24,22 @@ public class BossController : MonoBehaviour
             {
                 if (state == 0)
                 {
-                    yield return new WaitForSeconds(5f);
-                    stateMachine.SetState(1);
+                    //yield return new WaitForSeconds(5f);
+                    //stateMachine.SetState(1);
+                    //
+                    //while (!stateMachine.playerReached)
+                    //{
+                    //    yield return new WaitForEndOfFrame();
+                    //}
 
-                    while (!stateMachine.playerReached)
-                    {
-                        yield return new WaitForEndOfFrame();
-                    }
-
-                    yield return new WaitForSeconds(0.05f);
+                    yield return new WaitForSeconds(2f);
                     stateMachine.InvokeStateAttack();
 
-                    yield return new WaitForSeconds(.7f);
+                    yield return new WaitForSeconds(1.5f);
                     stateMachine.InvokeStateAttack();
 
-                    //yield return new WaitForSeconds(1f);
-                    //stateMachine.InvokeStateAttack();
+                    yield return new WaitForSeconds(1f);
+                    stateMachine.InvokeStateAttack();
 
                     yield return new WaitForSeconds(2f);
                     state = 1;
@@ -56,7 +56,7 @@ public class BossController : MonoBehaviour
             }
             else
             {
-
+                yield return new WaitForSeconds(5f);
             }
 
         }

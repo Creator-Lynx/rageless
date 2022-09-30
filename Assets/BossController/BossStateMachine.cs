@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -68,6 +69,7 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
 
     public void Attack(int attackNumber)
     {
+        animator.SetBool("IsAttaking", false);
         int dmg;
         switch (attackNumber)
         {
@@ -88,7 +90,17 @@ public class BossStateMachine : MonoBehaviour, IObjectWithStates, IDamagable
     {
         return pistol;
     }
+    public void StartCor()
+    {
+        StartCoroutine(SetAttackState());
+    }
+    IEnumerator SetAttackState()
+    {
+        yield return new WaitForSeconds(0.2f);
+        SetState(2);
+        playerReached = true;
 
+    }
 
     public void SetDamage(int dmg)
     {

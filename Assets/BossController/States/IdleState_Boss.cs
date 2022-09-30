@@ -9,8 +9,10 @@ public class IdleState_Boss : BossState
 
     public override void Attack(int attackNumber)
     {
-        _controller.SetState(2);
+        //_controller.SetState(2);
+
         _controller.animator.SetTrigger("Attack" + attackNumber);
+        _controller.animator.SetBool("IsAttaking", true);
     }
 
     public override void Block() { }

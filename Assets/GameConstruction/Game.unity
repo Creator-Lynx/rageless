@@ -2404,10 +2404,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4213609313082791495, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6645628056145569291, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1896490809}
+    - target: {fileID: 6645628056145569291, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6645628056145569291, guid: c2803ccdee5de2a4899c0ffeff1c4e4b, type: 3}
       propertyPath: OnHpChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1

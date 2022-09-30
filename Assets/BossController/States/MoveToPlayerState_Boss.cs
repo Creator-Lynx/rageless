@@ -19,8 +19,8 @@ public class MoveToPlayerState_Boss : BossState
 
     public override void Attack(int attackNumber)
     {
-        _controller.SetState(2);
-        _controller.animator.SetTrigger("Attack" + attackNumber);
+        // _controller.SetState(2);
+        // _controller.animator.SetTrigger("Attack" + attackNumber);
     }
 
     public override void Block() { }
@@ -50,17 +50,21 @@ public class MoveToPlayerState_Boss : BossState
         //    _controller.playerReached = true;
         //    return;
         //}
-
-        _controller.transform.position = Vector3.Lerp(_controller.transform.position, _controller.Player.transform.position, .78f);
+        var dir = _controller.Player.transform.position - _controller.transform.position;
+        _controller.transform.position = Vector3.Lerp(
+            _controller.transform.position,
+             _controller.Player.transform.position - (dir.normalized * 1.7f / 2), .78f);
 
         var dist = Vector3.Distance(_controller.transform.position, _controller.Player.transform.position);
-        if (dist <= 2f)
+        if (dist <= 1.7f)
         {
-            _controller.SetState(0);
-            _controller.playerReached = true;
-            return;
+            //_controller.SetState(0);
+            //_controller.playerReached = true;
+            //return;
+            _controller.StartCor();
         }
     }
+
 
     public override void Shooting(bool isShooting) { }
 }
