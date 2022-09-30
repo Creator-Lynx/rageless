@@ -16,7 +16,7 @@ public class BossController : MonoBehaviour
         stateMachine.SetState(0);
 
         var state = 0;
-
+        fase = 0;
 
         while (!stateMachine.isDead)
         {

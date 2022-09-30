@@ -14,7 +14,7 @@ public class VeerShotingState_Boss : BossState
     {
         _controller.animator.SetBool("Moving", false);
         _controller.GetPistol().GetComponent<Gun>().isStandartBullet = false;
-        _controller.GetPistol().GetComponent<Gun>().ShotInterval = 0.1f;
+        _controller.GetPistol().GetComponent<Gun>().ShotInterval = 0.07f;
     }
     public override void Block() { }
 
